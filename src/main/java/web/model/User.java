@@ -1,48 +1,58 @@
 package web.model;
 
+import javax.persistence.*;
+
+@Entity
 public class User {
 
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
 
-    private String model;
+    @Column(name = "name")
+    private String name;
 
-    private int series;
+    @Column(name = "password")
+    private String password;
 
-    public User(String model, int series) {
-        this.model = model;
-        this.series = series;
+    public User(int id, String name, String password) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
     }
 
-    public Long getId() {
+    public User() {}
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getModel() {
-        return model;
+    public String getName() {
+        return name;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getSeries() {
-        return series;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSeries(int series) {
-        this.series = series;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", model='" + model + '\'' +
-                ", series=" + series +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

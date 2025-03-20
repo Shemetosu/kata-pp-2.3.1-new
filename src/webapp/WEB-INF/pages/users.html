@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Список машин</title>
+    <title>Users</title>
 </head>
 <body>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>model</th>
-                <th>series</th>
-            </tr>
-        </thead>
-            <tbody><th:block th:each="car : ${cars}">
-                <tr>
-                    <td th:text="${car.id}"></td>
-                    <td th:text="${car.model}"></td>
-                    <td th:text="${car.series}"></td>
-                </tr>
-            </th:block>
-        </tbody>
-    </table>
+<h2>All Users</h2>
+<br>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.sureName}"></td>
+        <td>
+            <a th:href="@{/updateInfo(userId=${user.id})}">Update</a>
+            <a th:href="@{/deleteUser(userId=${user.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+
+</table>
+<br/>
+<a th:href="@{/addNewUser}">Add User</a>
+<div th:if="${#lists.isEmpty(users)}">
+    <p>No users found.</p>
+</div>
 </body>
 </html>
