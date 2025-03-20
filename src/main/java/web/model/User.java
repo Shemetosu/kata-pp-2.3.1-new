@@ -1,6 +1,6 @@
 package web.model;
 
-public class Car {
+public class User {
 
     private Long id;
 
@@ -8,7 +8,7 @@ public class Car {
 
     private int series;
 
-    public Car(String model, int series) {
+    public User(String model, int series) {
         this.model = model;
         this.series = series;
     }
@@ -39,7 +39,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "User{" +
                 "id=" + id +
                 ", model='" + model + '\'' +
                 ", series=" + series +
