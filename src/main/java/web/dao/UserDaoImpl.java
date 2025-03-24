@@ -11,10 +11,18 @@ import java.util.List;
 public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
-    private final EntityManager em;
+    private EntityManager em;
 
-    public UserDaoImpl(EntityManager em) {
-        this.em = em;
+    @Override
+    public List<User> getAllUsers() {
+        return em
+                .createQuery("select u from User u", User.class)
+                .getResultList();
+    }
+
+    @Override
+    public User getUser(int id) {
+        return em.find(User.class, id);
     }
 
     @Override
@@ -30,17 +38,5 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void deleteUser(int id) {
         em.remove(getUser(id));
-    }
-
-    @Override
-    public User getUser(int id) {
-        return em.find(User.class, id);
-    }
-
-    @Override
-    public List<User> getAllUsers() {
-        return em
-                .createQuery("select u from User u", User.class)
-                .getResultList();
     }
 }
