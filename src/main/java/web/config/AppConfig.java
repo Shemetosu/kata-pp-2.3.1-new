@@ -1,5 +1,5 @@
 package web.config;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,9 +19,8 @@ import java.util.Properties;
 
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-@ComponentScan(value = "web")
-@Configuration
 @ComponentScan("web")
+@Configuration
 @EnableJpaRepositories(basePackages = "web.dao")
 public class AppConfig {
 

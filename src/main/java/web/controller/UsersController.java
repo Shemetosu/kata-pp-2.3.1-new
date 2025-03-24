@@ -2,25 +2,28 @@ package web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import web.model.User;
 import web.service.UserService;
 
 import java.util.List;
 
 @Controller
-public class UserController {
+public class UsersController {
 
     private final UserService userService;
 
-    public UserController(UserService userService) {
+    public UsersController(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping(value = "/users/new/")
     public String saveUser(Model model) {
         model.addAttribute("user", new User());
-        return "saveUser";
+        return "addUser";
     }
 
     @PostMapping
@@ -29,7 +32,7 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @DeleteMapping(value = "/users/delete/")
+    @PostMapping(value = "/users/delete/")
     public String deleteUser(
             @RequestParam(value = "id") int id) {
         userService.deleteUser(id);
@@ -40,7 +43,7 @@ public class UserController {
     public String updateUser(
             @RequestParam(value = "id") int id, Model model) {
         model.addAttribute("user", userService.getUser(id));
-        return "saveUser";
+        return "addUser";
     }
 
     @PostMapping(value = "users/one/edit/")

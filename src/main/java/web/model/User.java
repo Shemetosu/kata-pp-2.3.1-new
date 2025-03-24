@@ -1,6 +1,11 @@
 package web.model;
 
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class User {
@@ -12,16 +17,17 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "surname")
+    private String surname;
 
-    public User(int id, String name, String password) {
+    public User(int id, String name, String surname) {
         this.id = id;
         this.name = name;
-        this.password = password;
+        this.surname = surname;
     }
 
-    public User() {}
+    public User() {
+    }
 
     public int getId() {
         return id;
@@ -39,12 +45,12 @@ public class User {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSurname(String password) {
+        this.surname = password;
     }
 
     @Override
@@ -52,7 +58,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
+                ", password='" + surname + '\'' +
                 '}';
     }
 }
