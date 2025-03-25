@@ -22,8 +22,11 @@ import java.util.Properties;
 @ComponentScan("web")
 public class AppConfig {
 
-    @Autowired
-    private Environment env;
+    private final Environment env;
+
+    public AppConfig(Environment env) {
+        this.env = env;
+    }
 
     @Bean
     public DataSource getDataSource() {
@@ -51,6 +54,7 @@ public class AppConfig {
         props.put("hibernate.show_sql", "true");
         props.put("hibernate.format_sql", "true");
         props.put("hibernate.hbm2ddl.auto", "update");
+        props.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
         return props;
     }
 

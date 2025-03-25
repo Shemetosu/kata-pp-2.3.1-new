@@ -43,7 +43,7 @@ public class UsersController {
 
     @GetMapping(value = "/updateInfo")
     public String updateUser(
-            @RequestParam(value = "id") int id, Model model) {
+            @ModelAttribute("user") int id, Model model) {
         model.addAttribute("user", userService.getUser(id));
         return "addUser";
     }

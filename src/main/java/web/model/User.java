@@ -49,8 +49,8 @@ public class User {
         return surname;
     }
 
-    public void setSurname(String password) {
-        this.surname = password;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", password='" + surname + '\'' +
+                ", surname='" + surname + '\'' +
                 '}';
     }
 }
