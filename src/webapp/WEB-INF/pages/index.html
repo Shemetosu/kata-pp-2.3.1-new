@@ -17,7 +17,7 @@
     <tbody>
     <tr th:each="user : ${users}">
         <td th:text="${user.name}"></td>
-        <td th:text="${user.sureName}"></td>
+        <td th:text="${user.surname}"></td>
         <td>
             <a th:href="@{/updateInfo(userId=${user.id})}">Update</a>
             <a th:href="@{/deleteUser(userId=${user.id})}">Delete</a>
