@@ -1,6 +1,8 @@
 package web.model;
 
 
+import jakarta.validation.constraints.NotBlank;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,13 +13,15 @@ import javax.persistence.Id;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")
+    @NotBlank(message = "Имя не должно быть пустым")
     private String name;
 
     @Column(name = "surname")
+    @NotBlank(message = "Фамилия не должна быть пустой")
     private String surname;
 
     public User(int id, String name, String surname) {
