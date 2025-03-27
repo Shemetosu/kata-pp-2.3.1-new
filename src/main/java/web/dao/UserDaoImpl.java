@@ -3,10 +3,10 @@ package web.dao;
 import org.springframework.stereotype.Repository;
 import web.model.User;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceException;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.PersistenceException;
 import java.util.List;
 
 @Repository
