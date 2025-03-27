@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.model.User;
 import web.service.UserService;
@@ -13,13 +12,17 @@ import web.service.UserService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
 public class UsersController {
 
     private final UserService userService;
 
     public UsersController(UserService userService) {
         this.userService = userService;
+    }
+
+    @GetMapping(value = "/")
+    public String index() {
+        return "index";
     }
 
     @GetMapping(value = "/users")
