@@ -19,7 +19,7 @@
         <td th:text="${user.name}"></td>
         <td th:text="${user.surname}"></td>
         <td>
-            <a th:href="@{/updateInfo(id=${user.id})}">Update</a>
+            <a th:href="@{/updateUser(id=${user.id})}">Update</a>
             <a th:href="@{/deleteUser(id=${user.id})}">Delete</a>
         </td>
     </tr>
