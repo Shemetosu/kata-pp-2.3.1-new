@@ -25,7 +25,7 @@ public class UsersController {
     public String index(Model model) {
         List<User> users = userService.getAllUsers();
         model.addAttribute("users", users);
-        return "index";
+        return "users";
     }
 
     @GetMapping(value = "/users")
@@ -35,19 +35,19 @@ public class UsersController {
         return "users";
     }
 
-    @GetMapping(value = "/addNewUser")
+    @GetMapping(value = "/addUser")
     public String addUser(Model model) {
         model.addAttribute("user", new User());
         return "addUser";
     }
 
-    @PostMapping("/saveUser")
+    @PostMapping("/addUser")
     public String createUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/";
     }
 
-    @GetMapping(value = "/updateInfo")
+    @GetMapping(value = "/updateUser")
     public String updateUser(@RequestParam("id") int id, Model model) {
         model.addAttribute("user", userService.getUser(id));
         return "addUser";
