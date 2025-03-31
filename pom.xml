@@ -74,10 +74,10 @@
             <version>${jakarta.validation-api.version}</version>
         </dependency>
         <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-dbcp2</artifactId>
-        <version>${dbcp2.version}</version>
-    </dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>${dbcp2.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
